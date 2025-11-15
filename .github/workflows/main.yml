@@ -16,13 +16,26 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v2
         with:
           role-to-assume: arn:aws:iam::566824726150:role/agent-invoker
-          aws-region: us-east-1
+          aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Run My Bedrock Action
         uses: JorgeRojas827/bedrock-action-agent@main
         with:
           agent_id: ${{ secrets.BEDROCK_AGENT_ID }}
           agent_alias_id: ${{ secrets.BEDROCK_AGENT_ALIAS }}
-          debug: "true"
+          action_prompt: |
+           Review the Pull Request content 
+           ### Summary of Changes:
+            - **filename: (include line numbers)**
+              - **Severity**: (Critical, High, Medium, Low)
+              - **Issue Category**:
+              - **Description**: (Detailed description of issue)
+              - **Recommendation**:
+              - **Citations**: (At least two citations from multiple sources with links)
+            ### Overall Summary:
+            - Reference similar prior summaries where applicable; provide a new summary if the changes are distinct.
+          ignore_patterns: '**/*.md,docs/**,.github/**'
+          debug: true
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+
