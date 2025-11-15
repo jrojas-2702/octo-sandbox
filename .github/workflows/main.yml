@@ -19,7 +19,7 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Run My Bedrock Action
-        uses: JorgeRojas827/bedrock-action-agent@main
+        uses: severity1/custom-amazon-bedrock-agent-action@v0.9.0
         with:
           agent_id: ${{ secrets.BEDROCK_AGENT_ID }}
           agent_alias_id: ${{ secrets.BEDROCK_AGENT_ALIAS }}
