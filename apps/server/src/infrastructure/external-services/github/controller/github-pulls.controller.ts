@@ -1,12 +1,19 @@
 import { GithubService } from '@infrastructure/external-services/github/service/github.service';
+<<<<<<< HEAD
+import { Controller, Query } from '@nestjs/common';
+=======
 import { Body, Controller, Query } from '@nestjs/common';
+>>>>>>> 334c39c76e810d6a914f0b54aeafd07b6a38b08f
 import { PrivateRoute } from '@infrastructure/common/decorators/auth-method.decorator';
 import { MethodEnum } from '@infrastructure/common/enums/method-enum';
 import {
   IUserDecorator,
   User,
 } from '@infrastructure/common/decorators/user.decorator';
+<<<<<<< HEAD
+=======
 import { PullRequestSubmitDto } from '../dtos/pull-requests-response.dto';
+>>>>>>> 334c39c76e810d6a914f0b54aeafd07b6a38b08f
 
 @Controller('github/pulls')
 export class GithubPullsController {
@@ -22,6 +29,8 @@ export class GithubPullsController {
       repository,
       user.username,
       commitSha,
+<<<<<<< HEAD
+=======
       user.accessToken,
     );
   }
@@ -37,6 +46,7 @@ export class GithubPullsController {
       user.username,
       Number(pullNumber),
       user.accessToken,
+>>>>>>> 334c39c76e810d6a914f0b54aeafd07b6a38b08f
     );
   }
 
@@ -50,7 +60,10 @@ export class GithubPullsController {
       repository,
       user.username,
       Number(pullNumber),
+<<<<<<< HEAD
+=======
       user.accessToken,
+>>>>>>> 334c39c76e810d6a914f0b54aeafd07b6a38b08f
     );
   }
 
@@ -64,6 +77,8 @@ export class GithubPullsController {
       repository,
       user.username,
       Number(pullNumber),
+<<<<<<< HEAD
+=======
       user.accessToken,
     );
   }
@@ -82,6 +97,7 @@ export class GithubPullsController {
       body.review,
       Number(body.line),
       user.accessToken,
+>>>>>>> 334c39c76e810d6a914f0b54aeafd07b6a38b08f
     );
   }
 }
